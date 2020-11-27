@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="Home">
+        <menu>
+            <item
+                android:id="@+id/nav_home"
+                android:icon="@drawable/n_home"
+                android:title="@string/home" />
+        </menu>
+    </item>
+
+    <item android:title="Store">
+        <menu>
+            <item
+                android:id="@+id/nav_eating"
+                android:icon="@drawable/n_food"
+                android:title="@string/eating" />
+            <item
+                android:id="@+id/nav_cafe"
+                android:icon="@drawable/n_cafe"
+                android:title="@string/cafe" />
+            <item
+                android:id="@+id/nav_conv"
+                android:icon="@drawable/n_cvs"
+                android:title="@string/conv_store" />
+            <item
+                android:id="@+id/nav_entertain"
+                android:icon="@drawable/n_play"
+                android:title="@string/entertain" />
+        </menu>
+    </item>
+
+    <item android:title="Playing">
+        <menu>
+            <item
+                android:id="@+id/nav_music"
+                android:icon="@drawable/n_music"
+                android:title="@string/music" />
+            <item
+                android:id="@+id/nav_book"
+                android:icon="@drawable/n_book"
+                android:title="@string/book" />
+            <item
+                android:id="@+id/nav_video"
+                android:icon="@drawable/n_video"
+                android:title="@string/video" />
+            <item
+                android:id="@+id/nav_game"
+                android:icon="@drawable/n_game"
+                android:title="@string/game" />
+        </menu>
+    </item>
+
+    <item android:title="Board">
+        <menu>
+            <item
+                android:id="@+id/nav_board"
+                android:icon="@drawable/n_board"
+                android:title="@string/board" />
+        </menu>
+    </item>
+</menu>

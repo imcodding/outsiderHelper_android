@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChattingFragment">
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryB">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btn_chat_arrow"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_centerVertical="true"
+            android:padding="16dp"
+            android:src="@drawable/m_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="채팅"
+            android:textColor="@android:color/white"
+            android:textSize="17.5sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom"
+        android:layout_below="@+id/top"
+        android:background="#e6e6e6"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/recycler_chatting"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edit_chat_msg_write"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:background="@drawable/m_message"
+            android:hint="메세지 쓰기"
+            android:paddingHorizontal="25.3dp"
+            android:paddingVertical="17.5dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_chatting_send"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryB"
+            android:text="전송"
+            android:textColor="@android:color/white"
+            android:textSize="17sp" />
+    </LinearLayout>
+</RelativeLayout>

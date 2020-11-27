@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_book_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingVertical="@dimen/img_title_padding_vertical"
+        android:src="@drawable/book_top_10" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_book"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/book_txt_height"
+        android:layout_below="@+id/img_book_title"
+        android:background="@color/oshPrimaryLight"
+        android:gravity="center"
+        android:text="웹툰"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/book_txt_size" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_book" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_web_book"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/book_txt_height"
+        android:layout_below="@+id/recycler_book"
+        android:background="@color/oshPrimaryLight"
+        android:gravity="center"
+        android:text="도서"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/book_txt_size" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_web_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_web_book" />
+</RelativeLayout>

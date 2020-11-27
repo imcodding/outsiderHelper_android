@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/custom_dialog_margin_horizon"
+        android:layout_marginRight="@dimen/custom_dialog_margin_horizon"
+        android:background="@drawable/rounded_rectangle_1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/custom_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/custom_dialog_title_height"
+            android:layout_marginTop="@dimen/custom_dialog_title_margin_vertical"
+            android:gravity="center"
+            android:text="채팅 유저 목록"
+            android:layout_marginBottom="10dp"
+            android:textSize="@dimen/custom_dialog_title_text_size" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/board_date_time_color"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_none_chat"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:text="채팅한 사용자가 없습니다."
+            android:gravity="center"
+            android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/custom_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:gravity="center"
+            tools:listitem="@layout/row_username"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/custom_dialog_btn_height"
+            android:layout_marginVertical="@dimen/custom_dialog_btn_margin_vertical"
+            android:paddingHorizontal="@dimen/custom_dialog_btn_padding_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/custom_btn_ok"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="닫기"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/custom_dialog_btn_text_size" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

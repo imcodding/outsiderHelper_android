@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/toolbar_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height">
+
+        <ImageView
+            android:id="@+id/img_icon_menu"
+            android:layout_width="@dimen/toolbar_btn_size"
+            android:layout_height="@dimen/toolbar_btn_size"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/toolbar_btn_margin_size"
+            android:padding="@dimen/toolbar_btn_padding_size"
+            android:src="@drawable/b_icon_menu_off" />
+
+        <ImageView
+            android:id="@+id/top_name"
+            android:layout_width="@dimen/top_name_width"
+            android:layout_height="@dimen/top_name_height"
+            android:layout_centerInParent="true"
+            android:src="@drawable/top_name" />
+
+        <ImageView
+            android:id="@+id/img_icon_chat"
+            android:layout_width="@dimen/toolbar_btn_size"
+            android:layout_height="@dimen/toolbar_btn_size"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/toolbar_btn_padding_size"
+            android:src="@drawable/c_menu_chat_ic_grey"
+            android:layout_marginRight="@dimen/toolbar_btn_margin_size"
+            android:layout_toLeftOf="@+id/img_icon_user"/>
+
+        <ImageView
+            android:id="@+id/img_icon_user"
+            android:layout_width="@dimen/toolbar_btn_size"
+            android:layout_height="@dimen/toolbar_btn_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/toolbar_btn_margin_size"
+            android:padding="@dimen/toolbar_btn_padding_size"
+            android:src="@drawable/b_icon_my_info_off" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sub_toolbar_bottom_line_height"
+            android:layout_alignParentBottom="true"
+            android:background="@color/sub_toolbar_bottom_line" />
+    </RelativeLayout>
+</RelativeLayout>

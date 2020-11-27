@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="storeCategoryBackground">#f0f0f0</color>
+    <color name="oshPrimaryLight">#41d7e9</color>
+    <color name="colorPrimaryB">#416ff3</color>
+    <color name="background_color">#FFFFFF</color>
+    
+    <color name="btn_ok_color">#3F51B5</color>
+    <color name="btn_ok_press_color">#7496fa</color>
+    <color name="btn_cancel_press_color">#bacbfd</color>
+    <color name="btn_text_color">#FFFFFF</color>
+    <color name="review_text_color">#828282</color>
+    <color name="sub_toolbar_bottom_line">#416ff3</color>
+    <color name="sub_toolbar_background">#c8c8c8</color>
+    <color name="background_photo">#ebebeb</color>
+    
+    <color name="board_nickname_hits_color">#969696</color>
+    <color name="board_date_time_color">#b4b4b4</color>
+
+</resources>

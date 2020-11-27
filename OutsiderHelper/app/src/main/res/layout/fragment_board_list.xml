@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/relative_board"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/row_board_rel_height"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/row_board_rel_padding_horizontal"
+        android:paddingVertical="@dimen/row_board_rel_padding_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linear_board"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_board_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/row_board_title_txt_margin_right"
+                    android:layout_marginBottom="@dimen/row_board_title_txt_margin_bottom"
+                    android:text="혼자 밥 먹어요"
+                    android:textSize="@dimen/row_board_title_txt_size" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txt_board_hits"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="32"
+                        android:textSize="@dimen/row_board_hits_txt_size"
+                        android:textColor="@color/board_nickname_hits_color"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_board_nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/row_board_txt_margin_right"
+                    android:text="하몬인"
+                    android:textColor="@color/board_nickname_hits_color" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_board_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/row_board_txt_margin_right"
+                    android:text="2019.09.20"
+                    android:textColor="@color/board_date_time_color" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_board_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="오후 02:10"
+                    android:textColor="@color/board_date_time_color"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_board"
+        android:src="@drawable/h_mt_10_line_2" />
+</RelativeLayout>

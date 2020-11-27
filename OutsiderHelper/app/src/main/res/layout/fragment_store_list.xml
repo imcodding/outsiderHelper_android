@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linear_store_eating"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/store_category_height"
+            android:background="@color/storeCategoryBackground"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img_store_eating"
+                android:layout_width="@dimen/store_category_img_width"
+                android:layout_height="@dimen/store_category_img_height"
+                android:src="@drawable/d_food_g" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_store_cafe"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/store_category_height"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img_store_cafe"
+                android:layout_width="@dimen/store_category_img_width"
+                android:layout_height="@dimen/store_category_img_height"
+                android:src="@drawable/d_cafe_g" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_store_conv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/store_category_height"
+            android:background="@color/storeCategoryBackground"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img_store_conv"
+                android:layout_width="@dimen/store_category_img_conv_width"
+                android:layout_height="@dimen/store_category_img_height"
+                android:src="@drawable/d_conv_g" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_store_entertain"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/store_category_height"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img_store_entertain"
+                android:layout_width="@dimen/store_category_img_width"
+                android:layout_height="@dimen/store_category_img_height"
+                android:src="@drawable/d_play_g" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

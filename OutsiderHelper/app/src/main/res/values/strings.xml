@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">아싸도우미</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="review_write">작성하기</string>
+    <string name="info">정보</string>
+    <string name="review">후기</string>
+    <string name="map">지도</string>
+    <string name="ok">저장</string>
+    <string name="cancel">취소</string>
+    <string name="home">홈</string>
+    <string name="eating">밥집</string>
+    <string name="cafe">카페</string>
+    <string name="conv_store">편의점</string>
+    <string name="entertain">유흥</string>
+    <string name="music">노래</string>
+    <string name="book">책/웹툰</string>
+    <string name="video">영상</string>
+    <string name="game">게임</string>
+    <string name="board">게시판</string>
+    <string name="chatting">채팅</string>
+
+    <string name="kakao_sdk_key">b94c53245a82c42ddf4d4b1b22d5ed69</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

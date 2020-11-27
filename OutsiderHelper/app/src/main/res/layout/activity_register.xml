@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Login.RegisterUserActivity">
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryB"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/m_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="회원가입"
+            android:textColor="@android:color/white"
+            android:textSize="17.5sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edit_regist_id"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:hint="아이디"
+                android:paddingHorizontal="25dp"
+                android:textColor="#b4b4b4" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edit_regist_password"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:hint="비밀번호"
+                android:inputType="textPassword"
+                android:paddingHorizontal="25dp"
+                android:textColor="#b4b4b4" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_regist_photo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/o_photo_g" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edit_regist_password2"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:hint="비밀번호 확인"
+        android:inputType="textPassword"
+        android:paddingHorizontal="25dp"
+        android:textColor="#b4b4b4" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edit_regist_name"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:hint="이름"
+        android:paddingHorizontal="25dp"
+        android:textColor="#b4b4b4" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edit_regist_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:hint="닉네임"
+        android:paddingHorizontal="25dp"
+        android:textColor="#b4b4b4" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edit_regist_age"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:hint="나이"
+        android:paddingHorizontal="25dp"
+        android:textColor="#b4b4b4" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_regist_university"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="25dp"
+        android:text="대학교 선택"
+        android:textColor="#b4b4b4"
+        android:textSize="17.5sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="2dp"
+        android:background="#b4b4b4" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btn_regist_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:src="@drawable/o_join_button_off_group" />
+
+</LinearLayout>

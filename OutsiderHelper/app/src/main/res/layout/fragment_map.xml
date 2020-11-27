@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/toolbar_sub_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_sub_title_height">
+
+        <LinearLayout
+            android:id="@+id/sub_toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/sub_toolbar_background"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/linear_info"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/info"
+                    android:textColor="@color/btn_text_color" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_review"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/review"
+                    android:textColor="@color/btn_text_color" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_map"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/sub_toolbar_bottom_line"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/map"
+                    android:textColor="@color/btn_text_color" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/sub_toolbar_layout">
+
+        <FrameLayout
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_color" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_current_location"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/b_navi"
+            android:padding="14dp"
+            android:background="@color/background_color"/>
+    </RelativeLayout>
+
+</LinearLayout>

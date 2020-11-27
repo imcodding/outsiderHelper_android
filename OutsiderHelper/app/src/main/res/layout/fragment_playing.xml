@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="@dimen/playing_layout_width"
+        android:layout_height="@dimen/playing_layout_height"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/img_playing_music"
+            android:layout_width="@dimen/playing_img_width_height"
+            android:layout_height="@dimen/playing_img_width_height"
+            android:src="@drawable/g_music"
+            android:layout_alignParentLeft="true" />
+
+        <ImageView
+            android:id="@+id/img_playing_book"
+            android:layout_width="@dimen/playing_img_width_height"
+            android:layout_height="@dimen/playing_img_width_height"
+            android:src="@drawable/g_book"
+            android:layout_alignParentRight="true" />
+
+        <ImageView
+            android:id="@+id/img_playing_video"
+            android:layout_width="@dimen/playing_img_width_height"
+            android:layout_height="@dimen/playing_img_width_height"
+            android:src="@drawable/g_video"
+            android:layout_alignParentBottom="true"/>
+
+        <ImageView
+            android:id="@+id/img_playing_game"
+            android:layout_width="@dimen/playing_img_width_height"
+            android:layout_height="@dimen/playing_img_width_height"
+            android:src="@drawable/g_game"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/relative_board"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/board_rel_height"
+        android:paddingHorizontal="@dimen/board_rel_padding_horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/board_linear_margin_top"
+            android:layout_marginBottom="@dimen/board_rel_margin_bottom"
+            android:paddingHorizontal="@dimen/board_linear_padding_horizontal">
+
+            <EditText
+                android:id="@+id/edit_board_filter"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginRight="19dp"
+                android:layout_toLeftOf="@+id/img_board_write"
+                android:background="@drawable/l_search_box"
+                android:layout_alignParentLeft="true"
+                android:hint="키워드 입력"
+                android:paddingLeft="40dp"
+                android:textSize="15sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_search_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="10dp"
+                android:paddingHorizontal="5dp"
+                android:src="@drawable/l_search_icon" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_board_write"
+                android:layout_width="@dimen/board_write_img_size"
+                android:layout_height="@dimen/board_write_img_size"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/l_write_icon" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_board"
+        android:src="@drawable/h_mt_10_line_2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_board"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relative_board" />
+</RelativeLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="vertical"
+    android:id="@+id/linear_user_name"
+    >
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:text="사용자"
+        android:id="@+id/list_row_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/board_date_time_color"/>
+</LinearLayout>

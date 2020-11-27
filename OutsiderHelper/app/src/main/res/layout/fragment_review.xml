@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_color">
+
+    <RelativeLayout
+        android:id="@+id/toolbar_sub_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_sub_title_height"
+        >
+
+        <LinearLayout
+            android:id="@+id/sub_toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@color/sub_toolbar_background"
+            >
+
+            <LinearLayout
+                android:id="@+id/linear_info"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/info"
+                    android:textColor="@color/btn_text_color"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_review"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@color/sub_toolbar_bottom_line"
+                >
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/review"
+                    android:textColor="@color/btn_text_color"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_map"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/map"
+                    android:textColor="@color/btn_text_color"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/toolbar_sub_title"
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn_review_write"
+        tools:listitem="@layout/row_review"
+        android:paddingBottom="10dp"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_review_write"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/review_write"
+        android:textColor="@color/btn_text_color"
+        android:background="@color/btn_ok_color"
+        />
+</RelativeLayout>

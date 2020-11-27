@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/row_review_padding_top"
+    android:paddingHorizontal="@dimen/row_review_user_icon_margin_left">
+
+    <LinearLayout
+        android:id="@+id/linear_user_info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/row_review_user_layout_height"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_user_icon"
+            android:layout_width="@dimen/row_review_user_layout_height"
+            android:layout_height="match_parent"
+            android:background="@drawable/f_photo_1"
+             />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/row_review_user_info_margin_left"
+            android:paddingVertical="@dimen/row_review_user_info_padding_vertical"
+            >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_user_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="하몬입니다만"
+                android:textSize="@dimen/row_review_user_id_text_size"
+                android:textColor="@color/review_text_color"
+                />
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/rating_star"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="1.5"
+                android:stepSize="0.5"
+                android:layout_alignParentBottom="true"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_review"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/row_review_txt_view_height"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/linear_user_info"
+        android:background="@drawable/f_review_box_1"
+        android:layout_marginTop="@dimen/row_review_txt_view_margin_top"
+        android:visibility="gone"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_review"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/row_review_txt_view_height"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/img_review"
+        android:background="@drawable/f_review_box_1"
+        android:layout_marginTop="@dimen/row_review_txt_view_margin_top"
+        android:scrollbars="vertical"
+        android:text="후기요"
+        />
+
+</RelativeLayout>

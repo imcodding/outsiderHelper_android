@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/toolbar_height"
+    android:background="@color/colorPrimaryB">
+
+    <LinearLayout
+        android:id="@+id/linear_bottom_home"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/oshPrimaryLight"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/img_bottom_home"
+            android:layout_width="@dimen/bottom_img_width"
+            android:layout_height="@dimen/bottom_img_height"
+            android:src="@drawable/c_menu_home_ic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_bottom_around"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/img_bottom_around"
+            android:layout_width="@dimen/bottom_img_width"
+            android:layout_height="@dimen/bottom_img_height"
+            android:src="@drawable/c_menu_around_ic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_bottom_game"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/img_bottom_game"
+            android:layout_width="@dimen/bottom_img_width"
+            android:layout_height="@dimen/bottom_img_height"
+            android:src="@drawable/c_menu_game_ic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_bottom_chat"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/img_bottom_board"
+            android:layout_width="@dimen/bottom_img_width"
+            android:layout_height="@dimen/bottom_img_height"
+            android:src="@drawable/c_menu_chat_ic" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/game_rel1_margin_bottom">
+
+    <RelativeLayout
+        android:id="@+id/relative_game"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/game_rel2_height">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_game_image"
+            android:layout_width="@dimen/game_img_size"
+            android:layout_height="@dimen/game_img_size"
+            android:src="@drawable/e_no_image_1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/img_game_image"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/game_linear_padding_left"
+            >
+
+            <LinearLayout
+                android:id="@+id/linear_game_name"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txt_game_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="아싸게임"
+                        android:layout_toLeftOf="@+id/img_game_heart"
+                        android:layout_alignParentLeft="true"
+                        android:textSize="@dimen/game_name_txt_size" />
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_game_heart"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_alignParentRight="true"
+                        android:padding="@dimen/icon_padding"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/h_heart" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_game_download"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/game_btn_download_margin_right"
+                    android:layout_weight="4"
+                    android:background="@color/oshPrimaryLight"
+                    android:text="다운로드"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/game_btn_txt_size" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_game_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@color/oshPrimaryLight"
+                    android:text="설명"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/game_btn_txt_size" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
