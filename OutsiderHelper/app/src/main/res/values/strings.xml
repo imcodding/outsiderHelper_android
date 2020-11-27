@@ -24,7 +24,14 @@
 
     <string name="kakao_sdk_key">b94c53245a82c42ddf4d4b1b22d5ed69</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- message -->
+    <string name="input_id_message">아이디를 입력하세요</string>
+    <string name="input_pw_message">비밀번호를 입력하세요</string>
+    <string name="input_pw_check_message">비밀번호 확인을 입력하세요</string>
+    <string name="input_name_message">이름을 입력하세요</string>
+    <string name="input_nickname_message">닉네임을 입력하세요</string>
+    <string name="input_age_message">나이를 입력하세요</string>
+    <string name="input_pw_noMatch_message">나이를 입력하세요</string>
 </resources>

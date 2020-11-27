@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Login.LoginActivity">
+    tools:context=".login.LoginActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="@dimen/login_splash_image_width"
@@ -21,7 +21,7 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/edit_login_id"
+            android:id="@+id/login_edit_id"
             android:layout_width="@dimen/login_id_width"
             android:layout_height="@dimen/login_id_height"
             android:layout_marginTop="@dimen/login_id_margin_top"
@@ -33,7 +33,7 @@
             android:textSize="@dimen/txt_size" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/edit_login_pw"
+            android:id="@+id/login_edit_pw"
             android:layout_width="@dimen/login_password_width"
             android:layout_height="@dimen/login_password_height"
             android:layout_marginTop="@dimen/login_margin_top"
@@ -52,19 +52,21 @@
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_login_ok"
+                android:id="@+id/login_btn_ok"
                 android:layout_width="@dimen/login_button_width"
                 android:layout_height="@dimen/login_button_height"
                 android:layout_marginRight="@dimen/login_button_margin_horizontal"
+                android:onClick="onClickView"
                 android:background="@drawable/a_log_in_button_off_group" />
 
-            <Button
-                android:id="@+id/btn_login_register"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/login_btn_sign_up"
                 android:layout_width="@dimen/login_join_button_width"
                 android:layout_height="@dimen/login_join_button_height"
                 android:layout_marginLeft="@dimen/login_button_margin_horizontal"
                 android:background="@drawable/a_join_button_off"
                 android:text="회원가입"
+                android:onClick="onClickView"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 

@@ -5,15 +5,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimary">
 
-    <com.github.piasy.biv.view.BigImageView
-        android:id="@+id/image_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/background_color"
-        app:failureImage="@color/background_color"
-        app:failureImageInitScaleType="center"
-        app:optimizeDisplay="true"
-         />
+<!--    <com.github.piasy.biv.view.BigImageView-->
+<!--        android:id="@+id/image_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@color/background_color"-->
+<!--        app:failureImage="@color/background_color"-->
+<!--        app:failureImageInitScaleType="center"-->
+<!--        app:optimizeDisplay="true"-->
+<!--         />-->
 
     <Button
         android:id="@+id/btn_img_close"
