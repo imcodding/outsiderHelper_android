@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "410866912663",
+    "firebase_url": "https://outsider-8104a.firebaseio.com",
+    "project_id": "outsider-8104a",
+    "storage_bucket": "outsider-8104a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:410866912663:android:c8dd42d55f8ac39454c8d2",
+        "android_client_info": {
+          "package_name": "com.mia.outsiderhelper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "410866912663-u7lhjjlajjqdkm25gbec0b21jrva7d5e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvWnILyVPqz33P0vaTMGU4V-77oGHt2XQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "410866912663-u7lhjjlajjqdkm25gbec0b21jrva7d5e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
