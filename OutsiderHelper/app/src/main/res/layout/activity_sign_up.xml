@@ -1,130 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".signup.SignUpActivity">
 
-    <RelativeLayout
-        android:id="@+id/relative"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimaryB"
-        android:orientation="horizontal">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/m_back" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="회원가입"
-            android:textColor="@android:color/white"
-            android:textSize="17.5sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
-
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/relative"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimaryB"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/sign_up_iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:onClick="onClickView"
+                android:src="@drawable/m_back" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="회원가입"
+                android:textColor="@android:color/white"
+                android:textSize="17.5sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:orientation="vertical">
+            android:layout_marginTop="33dp"
+            android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/sign_up_edit_id"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:hint="아이디"
-                android:paddingHorizontal="25dp"
-                android:textColor="#b4b4b4" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/sign_up_edit_pw"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:hint="비밀번호"
-                android:inputType="textPassword"
-                android:paddingHorizontal="25dp"
-                android:textColor="#b4b4b4" />
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/sign_up_edit_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:hint="아이디"
+                    android:paddingHorizontal="25dp"
+                    android:textColor="#b4b4b4" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/sign_up_edit_pw"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:hint="비밀번호"
+                    android:inputType="textPassword"
+                    android:paddingHorizontal="25dp"
+                    android:textColor="#b4b4b4" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/sign_up_iv_photo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/o_photo_g" />
         </LinearLayout>
 
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/sign_up_edit_pw_check"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:hint="비밀번호 확인"
+            android:inputType="textPassword"
+            android:paddingHorizontal="25dp"
+            android:textColor="#b4b4b4" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/sign_up_edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:hint="이름"
+            android:paddingHorizontal="25dp"
+            android:textColor="#b4b4b4" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/sign_up_edit_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:hint="닉네임"
+            android:paddingHorizontal="25dp"
+            android:textColor="#b4b4b4" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/sign_up_edit_age"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:hint="나이"
+            android:inputType="number"
+            android:paddingHorizontal="25dp"
+            android:textColor="#b4b4b4" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/sign_up_edit_university"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="25dp"
+            android:text="대학교"
+            android:textColor="#b4b4b4"
+            android:textSize="17.5sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="2dp"
+            android:background="#b4b4b4" />
+
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/sign_up_iv_photo"
-            android:layout_width="0dp"
+            android:id="@+id/sign_up_iv_ok"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/o_photo_g" />
+            android:layout_marginTop="37dp"
+            android:onClick="onSignUp"
+            android:src="@drawable/o_join_button_off_group" />
     </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/sign_up_edit_pw_check"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:hint="비밀번호 확인"
-        android:inputType="textPassword"
-        android:paddingHorizontal="25dp"
-        android:textColor="#b4b4b4" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/sign_up_edit_name"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:hint="이름"
-        android:paddingHorizontal="25dp"
-        android:textColor="#b4b4b4" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/sign_up_edit_nickname"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:hint="닉네임"
-        android:paddingHorizontal="25dp"
-        android:textColor="#b4b4b4" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/sign_up_edit_age"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:hint="나이"
-        android:inputType="number"
-        android:paddingHorizontal="25dp"
-        android:textColor="#b4b4b4" />
-
-<!--    <androidx.appcompat.widget.AppCompatTextView-->
-<!--        android:id="@+id/sign_up_edit_university"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="54dp"-->
-<!--        android:gravity="center_vertical"-->
-<!--        android:paddingHorizontal="25dp"-->
-<!--        android:text="대학교 선택"-->
-<!--        android:textColor="#b4b4b4"-->
-<!--        android:textSize="17.5sp" />-->
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginHorizontal="2dp"
-        android:background="#b4b4b4" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/sign_up_iv_ok"
-        android:layout_width="match_parent"
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
-        android:onClick="onSignUp"
-        android:src="@drawable/o_join_button_off_group" />
-
-</LinearLayout>
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/circle_progress"
+        android:indeterminateDuration="1000"
+        android:visibility="invisible" />
+</RelativeLayout>
