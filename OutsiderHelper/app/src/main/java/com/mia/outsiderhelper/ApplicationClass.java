@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -22,25 +25,17 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApplicationClass extends Application {
-    public static MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json; charset=uft-8");
     public static MediaType MEDIA_TYPE_JPEG = MediaType.parse("image/jpeg");
-
-    // 실서버 주소
-    public static String BASE_URL = "";
-
-    public static SharedPreferences sSharedPreferences = null;
 
     // SharedPreferences 키 값
     public static String TAG = "OUTSIDER_APP";
-
-    // JWT Token 값
-    public static String X_ACCESS_TOKEN = "X-ACCESS-TOKEN";
+    public static SharedPreferences sSharedPreferences = null;
 
     //날짜 형식
     public static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA);
 
-    // Retrofit 인스턴스
-    public static Retrofit retrofit;
+    // Firebase 데이터베이스
+    public static DatabaseReference mPostReference;
 
     public static int userNo;
 
@@ -55,34 +50,9 @@ public class ApplicationClass extends Application {
         }
     }
 
-    public static Retrofit getRetrofit() {
-        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+    public static DatabaseReference getDatabaseReference() {
+        mPostReference = FirebaseDatabase.getInstance().getReference();
 
-        if (retrofit == null) {
-            OkHttpClient client = new OkHttpClient.Builder()
-                    .readTimeout(5000, TimeUnit.MILLISECONDS)
-                    .connectTimeout(5000, TimeUnit.MILLISECONDS)
-                    .addInterceptor(httpLoggingInterceptor)
-                    .addInterceptor(new Interceptor() {
-                        @NotNull
-                        @Override
-                        public Response intercept(@NotNull Chain chain) throws IOException {
-                            Request request = chain.request().newBuilder()
-                                    .addHeader("Content-Type","application/json")
-                                    .build();
-                            return chain.proceed(request);
-                        }
-                    })
-                    .build();
-
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .client(client)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-        }
-
-        return retrofit;
+        return mPostReference;
     }
 }
