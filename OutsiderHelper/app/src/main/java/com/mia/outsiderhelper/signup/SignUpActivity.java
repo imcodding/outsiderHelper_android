@@ -4,27 +4,21 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import androidx.annotation.NonNull;
-
 import androidx.appcompat.widget.AppCompatEditText;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.mia.outsiderhelper.BaseActivity;
 import com.mia.outsiderhelper.R;
 import com.mia.outsiderhelper.models.SignUpBody;
 import com.mia.outsiderhelper.util.HashUtil;
 
-import java.util.Map;
+import java.util.HashMap;
 
 
-public class SignUpActivity extends BaseActivity {
+public class SignUpActivity extends BaseActivity implements SignUpActivityView {
 
     private static final String TAG = "SignActivity";
-    private DatabaseReference mPostReference;
 
+    private SignUpService mSignUpService;
     private AppCompatEditText mEditId;
     private AppCompatEditText mEditPw;
     private AppCompatEditText mEditRePw;
@@ -38,7 +32,7 @@ public class SignUpActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        mPostReference = FirebaseDatabase.getInstance().getReference();
+        mSignUpService = new SignUpService(this);
 
         mEditId = findViewById(R.id.sign_up_edit_id);
         mEditPw = findViewById(R.id.sign_up_edit_pw);
@@ -46,29 +40,49 @@ public class SignUpActivity extends BaseActivity {
         mEditName = findViewById(R.id.sign_up_edit_name);
         mEditAge = findViewById(R.id.sign_up_edit_age);
         mEditNickname = findViewById(R.id.sign_up_edit_nickname);
-//        mEditUniversity = findViewById(R.id.sign_up_edit_university);
+        mProgressBar = findViewById(R.id.progress_bar);
+        mEditUniversity = findViewById(R.id.sign_up_edit_university);
     }
 
-    public void onSignUp(View view) {
+    public void onClickView(View view) {
+        if (view.getId() == R.id.sign_up_iv_back) { finish(); return; }
+
         String userId = mEditId.getText().toString();
         String password = mEditPw.getText().toString();
         String rePassword = mEditRePw.getText().toString();
         String name = mEditName.getText().toString();
         String nickname = mEditNickname.getText().toString();
         String age = mEditAge.getText().toString();
+        String university = mEditUniversity.getText().toString();
         String hash = null;
 
-        if (!checkValidation(userId, password, rePassword, name, nickname, age)) return;
+        if (!checkValidation(userId, password, rePassword, name, nickname, age, university)) return;
         try {
             hash = HashUtil.encryptAES256(password);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        postFirebaseDatabase(userId, hash, name, nickname, age);
+        SignUpBody post = new SignUpBody(userId, hash, name, nickname, age);
+        HashMap<String, Object> postValues = post.toMap();
+
+        showProgressDialog(mProgressBar);
+        mSignUpService.postSignUp(userId, postValues);
     }
 
-    private boolean checkValidation(String id, String pw, String rePw, String name, String nickname, String age) {
+    @Override
+    public void postSignUpSuccess(String message) {
+        hideProgressDialog(mProgressBar);
+        showCustomToast(message);
+        finish();
+    }
+
+    @Override
+    public void postSignUpFailure(String message) {
+        Log.d(TAG, message);
+    }
+
+    private boolean checkValidation(String id, String pw, String rePw, String name, String nickname, String age, String university) {
         if (id.length() == 0) {
             showCustomToast(getString(R.string.input_id_message));
             return false;
@@ -87,11 +101,10 @@ public class SignUpActivity extends BaseActivity {
         } else if (age.length() == 0) {
             showCustomToast(getString(R.string.input_age_message));
             return false;
+        } else if (university.length() == 0) {
+            showCustomToast(getString(R.string.input_university_message));
+            return false;
         }
-//        else if (university.equals("")) {
-//            showCustomToast(getString(R.string.input_id_message));
-//            return false;
-//        }
 
         if (!pw.equals(rePw)) {
             showCustomToast(getString(R.string.input_pw_noMatch_message));
@@ -99,26 +112,4 @@ public class SignUpActivity extends BaseActivity {
         }
         return true;
     }
-
-
-    public void postFirebaseDatabase(String userId, String hash, String name, String nickname, String age) {
-        Map<String, Object> postValues = null;
-        SignUpBody post = new SignUpBody(userId, hash, name, nickname, age);
-        postValues = post.toMap();
-
-        mPostReference.child("users").child(userId).setValue(postValues)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "SinUp Success!");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d(TAG, "SinUp Fail!");
-                    }
-                });
-    }
-
 }
