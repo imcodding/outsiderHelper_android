@@ -1,7 +1,6 @@
 package com.mia.outsiderhelper;
 
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -12,11 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 @SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity {
-//    public ProgressDialog mProgressDialog;
     public ProgressBar mProgressBar;
 
     public void showCustomToast(final String message) {
-        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     public void showDialog(String msg) {
@@ -32,40 +30,22 @@ public class BaseActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-//    public void showProgressDialog() {
-//        if (mProgressDialog == null) {
-//            mProgressDialog = new ProgressDialog(this);
-////            mProgressDialog.setMessage(getString(R.string.loading));
-//            mProgressDialog.setIndeterminate(true);
-//        }
-//
-//        mProgressDialog.show();
-//    }
-
-    public void showProgressDialog(ProgressBar progressBar) {
+    public void showProgressDialog() {
         if(mProgressBar != null) {
             mProgressBar.setVisibility(View.VISIBLE);
         }
     }
 
-    public void hideProgressDialog(ProgressBar progressBar) {
+    public void hideProgressDialog() {
         if(mProgressBar != null) {
             mProgressBar.setVisibility(View.INVISIBLE);
         }
     }
 
-
-//    public void hideProgressDialog() {
-//        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-//            mProgressDialog.dismiss();
-//        }
-//    }
-
-
     @Override
     public void onStop() {
         super.onStop();
-        hideProgressDialog(mProgressBar);
+        hideProgressDialog();
     }
 
 }
