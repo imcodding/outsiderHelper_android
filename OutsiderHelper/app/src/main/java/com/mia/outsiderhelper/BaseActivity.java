@@ -12,7 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 @SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity {
-    public ProgressDialog mProgressDialog;
+//    public ProgressDialog mProgressDialog;
+    public ProgressBar mProgressBar;
 
     public void showCustomToast(final String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
@@ -31,36 +32,40 @@ public class BaseActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    public void showProgressDialog() {
-        if (mProgressDialog == null) {
-            mProgressDialog = new ProgressDialog(this);
-//            mProgressDialog.setMessage(getString(R.string.loading));
-            mProgressDialog.setIndeterminate(true);
-        }
+//    public void showProgressDialog() {
+//        if (mProgressDialog == null) {
+//            mProgressDialog = new ProgressDialog(this);
+////            mProgressDialog.setMessage(getString(R.string.loading));
+//            mProgressDialog.setIndeterminate(true);
+//        }
+//
+//        mProgressDialog.show();
+//    }
 
-        mProgressDialog.show();
-    }
-
-    public void showProgressDialog2(View view) {
-        view.setVisibility(View.VISIBLE);
-    }
-
-    public void hideProgressDialog2(View view) {
-        view.setVisibility(View.INVISIBLE);
-    }
-
-
-    public void hideProgressDialog() {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.dismiss();
+    public void showProgressDialog(ProgressBar progressBar) {
+        if(mProgressBar != null) {
+            mProgressBar.setVisibility(View.VISIBLE);
         }
     }
+
+    public void hideProgressDialog(ProgressBar progressBar) {
+        if(mProgressBar != null) {
+            mProgressBar.setVisibility(View.INVISIBLE);
+        }
+    }
+
+
+//    public void hideProgressDialog() {
+//        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+//            mProgressDialog.dismiss();
+//        }
+//    }
 
 
     @Override
     public void onStop() {
         super.onStop();
-        hideProgressDialog();
+        hideProgressDialog(mProgressBar);
     }
 
 }
