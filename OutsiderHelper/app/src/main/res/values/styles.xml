@@ -3,7 +3,6 @@
     <!-- Base application theme. -->
     <!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">#41d7e9</item>
         <item name="colorPrimaryDark">#009688</item>
         <item name="colorAccent">#E91E63</item>
@@ -15,7 +14,17 @@
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="colorAccent">#E91E63</item>
+        <item name="colorPrimary">#416ff3</item>
+        <item name="colorPrimaryDark">#416ff3</item>
+        <item name="colorAccent">#416ff3</item>
+    </style>
+
+    <style name="CustomNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">#416ff3</item>
+        <item name="colorPrimaryDark">#416ff3</item>
+        <item name="colorAccent">#416ff3</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
