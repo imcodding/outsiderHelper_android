@@ -10,12 +10,13 @@ public class SignUpBody {
    private String age;
    private String university;
 
-    public SignUpBody(String userId, String password, String name, String nickname, String age) {
+    public SignUpBody(String userId, String password, String name, String nickname, String age, String university) {
         this.userId = userId;
         this.password = password;
         this.name = name;
         this.nickname = nickname;
         this.age = age;
+        this.university = university;
     }
 
     public HashMap<String, Object> toMap() {
@@ -24,6 +25,7 @@ public class SignUpBody {
         map.put("hash", password);
         map.put("nickname", nickname);
         map.put("age", age);
+        map.put("university", university);
 
         return map;
     }

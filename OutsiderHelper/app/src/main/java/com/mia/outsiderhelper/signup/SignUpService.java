@@ -7,6 +7,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.HashMap;
 
+import static com.mia.outsiderhelper.ApplicationClass.SUCCESS_CODE;
 import static com.mia.outsiderhelper.ApplicationClass.getDatabaseReference;
 
 public class SignUpService {
@@ -21,7 +22,7 @@ public class SignUpService {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        signUpActivityView.postSignUpSuccess("회원가입 성공");
+                        signUpActivityView.postSignUpSuccess(SUCCESS_CODE);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

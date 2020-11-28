@@ -11,6 +11,7 @@ import com.mia.outsiderhelper.R;
 import com.mia.outsiderhelper.models.SignUpBody;
 import com.mia.outsiderhelper.util.HashUtil;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 
 
@@ -44,7 +45,7 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
         mEditUniversity = findViewById(R.id.sign_up_edit_university);
     }
 
-    public void onClickView(View view) {
+    public void onClickView(View view) throws NoSuchAlgorithmException {
         if (view.getId() == R.id.sign_up_iv_back) { finish(); return; }
 
         String userId = mEditId.getText().toString();
@@ -57,29 +58,27 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
         String hash = null;
 
         if (!checkValidation(userId, password, rePassword, name, nickname, age, university)) return;
-        try {
-            hash = HashUtil.encryptAES256(password);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
-        SignUpBody post = new SignUpBody(userId, hash, name, nickname, age);
+        hash = HashUtil.sha256(password);
+
+        SignUpBody post = new SignUpBody(userId, hash, name, nickname, age, university);
         HashMap<String, Object> postValues = post.toMap();
 
-        showProgressDialog(mProgressBar);
+        showProgressDialog();
         mSignUpService.postSignUp(userId, postValues);
     }
 
     @Override
-    public void postSignUpSuccess(String message) {
-        hideProgressDialog(mProgressBar);
-        showCustomToast(message);
+    public void postSignUpSuccess(int code) {
+        hideProgressDialog();
+        showCustomToast(getString(R.string.sign_up_success));
         finish();
     }
 
     @Override
     public void postSignUpFailure(String message) {
         Log.d(TAG, message);
+        showCustomToast(getString(R.string.sign_up_failure));
     }
 
     private boolean checkValidation(String id, String pw, String rePw, String name, String nickname, String age, String university) {
