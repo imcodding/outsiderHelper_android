@@ -12,6 +12,7 @@
             android:id="@+id/img_icon_menu"
             android:layout_width="@dimen/toolbar_btn_size"
             android:layout_height="@dimen/toolbar_btn_size"
+            android:onClick="onClickView"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/toolbar_btn_margin_size"
