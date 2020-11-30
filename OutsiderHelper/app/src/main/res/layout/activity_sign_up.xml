@@ -72,6 +72,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:background="@color/btn_ok_press_color"
+                        android:layout_marginRight="5dp"
                         android:textColor="@color/white"
                         android:text="중복검사" />
 
@@ -87,12 +88,12 @@
                     android:textColor="#b4b4b4" />
             </LinearLayout>
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/sign_up_iv_photo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/o_photo_g" />
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/sign_up_iv_photo"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:src="@drawable/o_photo_g" />-->
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatEditText
