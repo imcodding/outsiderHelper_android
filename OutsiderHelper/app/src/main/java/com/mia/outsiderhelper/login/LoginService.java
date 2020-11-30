@@ -28,9 +28,9 @@ public class LoginService {
                 LoginResponse response = snapshot.getValue(LoginResponse.class);
                 if(hash.equals(response.getHash())) {
                     USER_ID = response.getUserId();
-                    loginActivityView.getUserSuccess(SUCCESS_CODE);
+                    loginActivityView.getUserSuccess(SUCCESS_CODE, response);
                 } else {
-                    loginActivityView.getUserSuccess(FAILURE_CODE);
+                    loginActivityView.getUserSuccess(FAILURE_CODE, null);
                 }
             }
 

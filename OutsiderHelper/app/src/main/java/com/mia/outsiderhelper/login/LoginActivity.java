@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import com.mia.outsiderhelper.BaseActivity;
 import com.mia.outsiderhelper.R;
 import com.mia.outsiderhelper.main.MainActivity;
+import com.mia.outsiderhelper.models.LoginResponse;
 import com.mia.outsiderhelper.signup.SignUpActivity;
 import com.mia.outsiderhelper.util.HashUtil;
 
@@ -100,10 +101,13 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
     }
 
     @Override
-    public void getUserSuccess(int code) {
+    public void getUserSuccess(int code, LoginResponse user) {
         hideProgressDialog();
         if(code == SUCCESS_CODE) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("user", user);
+            intent.putExtras(bundle);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         } else {
