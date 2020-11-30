@@ -2,8 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    >
+    android:background="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,7 +10,7 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/linear_store_eating"
+            android:id="@+id/store_linear_eating"
             android:layout_width="match_parent"
             android:layout_height="@dimen/store_category_height"
             android:background="@color/storeCategoryBackground"
@@ -25,7 +24,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear_store_cafe"
+            android:id="@+id/store_linear_cafe"
             android:layout_width="match_parent"
             android:layout_height="@dimen/store_category_height"
             android:gravity="center">
@@ -38,7 +37,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear_store_conv"
+            android:id="@+id/store_linear_convenience"
             android:layout_width="match_parent"
             android:layout_height="@dimen/store_category_height"
             android:background="@color/storeCategoryBackground"
@@ -53,7 +52,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear_store_entertain"
+            android:id="@+id/store_linear_entertain"
             android:layout_width="match_parent"
             android:layout_height="@dimen/store_category_height"
             android:gravity="center">
