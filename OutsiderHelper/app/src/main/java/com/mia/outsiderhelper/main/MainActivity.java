@@ -40,6 +40,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         TextView tvUserNick = nav_header_view.findViewById(R.id.txt_user_nick);
         TextView tvUserUniversity = nav_header_view.findViewById(R.id.txt_user_university);
         TextView tvUserAge = nav_header_view.findViewById(R.id.txt_user_age);
+
+        getDownloadImageUrl("food_winter_1.png");
+        getDownloadImageUrl("food_winter_2.png");
+        getDownloadImageUrl("food_winter_3.png");
+        getDownloadImageUrl("food_winter_4.png");
     }
 
     @SuppressLint("NonConstantResourceId")
