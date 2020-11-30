@@ -50,5 +50,9 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     // 이미지 모양 커스터마이징
     implementation 'com.github.siyamed:android-shape-imageview:0.9.3'
+
+    // retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 }
 apply plugin: 'com.google.gms.google-services'
