@@ -4,10 +4,16 @@ import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+import com.mia.outsiderhelper.models.LoginResponse;
 
 import java.util.HashMap;
 
+import static com.mia.outsiderhelper.ApplicationClass.FAILURE_CODE;
 import static com.mia.outsiderhelper.ApplicationClass.SUCCESS_CODE;
+import static com.mia.outsiderhelper.ApplicationClass.USER_ID;
 import static com.mia.outsiderhelper.ApplicationClass.getDatabaseReference;
 
 public class SignUpService {
@@ -17,6 +23,26 @@ public class SignUpService {
         this.signUpActivityView = signUpActivityView;
     }
 
+    /**
+     * ID 중복검사
+     */
+    void checkUserId(String userId) {
+        getDatabaseReference().child("users").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                signUpActivityView.checkUserIdSuccess();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                signUpActivityView.checkUserIdFailure(error.getMessage());
+            }
+        });
+    }
+
+    /**
+     * 회원가입
+     */
     void postSignUp(String userId, HashMap<String, Object> postValues) {
         getDatabaseReference().child("users").child(userId).setValue(postValues)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
