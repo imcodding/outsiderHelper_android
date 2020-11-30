@@ -1,6 +1,8 @@
 package com.mia.outsiderhelper.models;
 
-public class LoginResponse {
+import java.io.Serializable;
+
+public class LoginResponse implements Serializable {
     private String userId;
     private String hash;
     private String name;
