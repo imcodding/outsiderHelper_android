@@ -10,6 +10,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApplicationClass extends Application {
     // SharedPreferences 키 값
@@ -21,6 +26,9 @@ public class ApplicationClass extends Application {
 
     // Firebase 데이터베이스
     public static DatabaseReference mPostReference;
+
+    // Retrofit 인스턴스
+    public static Retrofit retrofit;
 
     public static String USER_ID;
 
@@ -40,5 +48,22 @@ public class ApplicationClass extends Application {
         mPostReference = FirebaseDatabase.getInstance().getReference();
 
         return mPostReference;
+    }
+
+    public static Retrofit getRetrofit(String BASE_URL) {
+        if (retrofit == null) {
+            OkHttpClient client = new OkHttpClient.Builder()
+                    .readTimeout(5000, TimeUnit.MILLISECONDS)
+                    .connectTimeout(5000, TimeUnit.MILLISECONDS)
+                    .build();
+
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .client(client)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+
+        return retrofit;
     }
 }
