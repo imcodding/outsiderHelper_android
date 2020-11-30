@@ -37,6 +37,9 @@
     <string name="input_pw_noMatch_message">비밀번호가 일치하지 않습니다.</string>
     <string name="sign_up_success">회원가입 되었습니다.</string>
     <string name="sign_up_failure">회원가입을 다시 진행해주세요.</string>
+    <string name="sign_up_check_id">아이디 중복검사를 해야합니다.</string>
+    <string name="sign_up_check_id_ok">사용 가능한 아이디입니다.</string>
+    <string name="sign_up_check_id_no">이미 존재하는 아이디입니다.</string>
     <!-- 로그인 -->
     <string name="login_pw_no_match">비밀번호가 일치하지 않습니다.</string>
     <string name="login_id_no_match">존재하지 않는 아이디입니다.</string>
