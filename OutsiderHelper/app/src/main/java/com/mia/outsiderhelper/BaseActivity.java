@@ -58,7 +58,7 @@ public class BaseActivity extends AppCompatActivity {
 
     public void getStorageUrl(String fileName) {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageDownRef = storage.getReferenceFromUrl("gs://outsider-8104a.appspot.com/").child("images").child(fileName);
+        StorageReference storageDownRef = storage.getReferenceFromUrl("gs://outsider-8104a.appspot.com/").child("food").child("winter").child(fileName);
         storageDownRef.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
             @Override
             public void onComplete(@NonNull Task<Uri> task) {
@@ -71,7 +71,7 @@ public class BaseActivity extends AppCompatActivity {
         });
     }
 
-    void postStorageImage(String season, ArrayList<String> postValues) {
+    public void postStorageImage(String season, ArrayList<String> postValues) {
         getDatabaseReference().child("food").child(season).setValue(postValues)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
