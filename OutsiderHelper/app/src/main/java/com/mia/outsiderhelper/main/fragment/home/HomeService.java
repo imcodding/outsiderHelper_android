@@ -1,13 +1,21 @@
 package com.mia.outsiderhelper.main.fragment.home;
 
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.mia.outsiderhelper.main.fragment.home.interfaces.HomeFragmentView;
 import com.mia.outsiderhelper.main.fragment.home.interfaces.HomeRetrofitInterface;
 import com.mia.outsiderhelper.models.WeatherResponse;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.mia.outsiderhelper.ApplicationClass.getDatabaseReference;
 import static com.mia.outsiderhelper.ApplicationClass.getRetrofit;
 
 public class HomeService {
@@ -34,6 +42,20 @@ public class HomeService {
                 homeFragmentView.getWeatherFailure();
             }
         });
+    }
 
+    void getFoodImage(String season) {
+        getDatabaseReference().child("food").child(season).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<String> images  = (ArrayList<String>) snapshot.getValue();
+                homeFragmentView.getFoodImageSuccess(images);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                homeFragmentView.getFoodImageFailure(error.getMessage());
+            }
+        });
     }
 }
