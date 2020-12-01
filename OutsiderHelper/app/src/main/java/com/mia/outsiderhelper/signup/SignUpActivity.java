@@ -15,6 +15,8 @@ import com.mia.outsiderhelper.util.HashUtil;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 
+import static com.mia.outsiderhelper.ApplicationClass.SUCCESS_CODE;
+
 
 public class SignUpActivity extends BaseActivity implements SignUpActivityView {
 
@@ -81,16 +83,23 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
     }
 
     @Override
-    public void checkUserIdSuccess() {
+    public void checkUserIdSuccess(int code) {
         hideProgressDialog();
-        showCustomToast(getString(R.string.sign_up_check_id_ok));
-        isCheckUserId = true;
+        if(code == SUCCESS_CODE) {
+            showCustomToast(getString(R.string.sign_up_check_id_ok));
+            isCheckUserId = true;
+        } else {
+            showCustomToast(getString(R.string.sign_up_check_id_no));
+            isCheckUserId = false;
+        }
     }
 
     @Override
     public void checkUserIdFailure(String message) {
         hideProgressDialog();
-        showCustomToast(getString(R.string.sign_up_check_id_no));
+        Log.d(TAG, message);
+        showCustomToast(getString(R.string.sign_up_check_id_again));
+        isCheckUserId = false;
     }
 
     @Override

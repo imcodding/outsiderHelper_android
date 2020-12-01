@@ -30,7 +30,11 @@ public class SignUpService {
         getDatabaseReference().child("users").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                signUpActivityView.checkUserIdSuccess();
+                if(snapshot.getValue() != null) {
+                    signUpActivityView.checkUserIdSuccess(FAILURE_CODE);
+                    return;
+                }
+                signUpActivityView.checkUserIdSuccess(SUCCESS_CODE);
             }
 
             @Override
