@@ -186,8 +186,8 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/img_home_food"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/home_food_viewPager"
         android:layout_width="match_parent"
         android:layout_below="@+id/linear5"
         android:layout_height="match_parent" />
