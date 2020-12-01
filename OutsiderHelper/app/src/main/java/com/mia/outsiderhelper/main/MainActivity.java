@@ -22,6 +22,8 @@ import com.mia.outsiderhelper.main.fragment.playing.PlayingFragment;
 import com.mia.outsiderhelper.main.fragment.store.StoreFragment;
 import com.mia.outsiderhelper.models.LoginResponse;
 
+import java.util.ArrayList;
+
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener {
 
     // view
@@ -60,14 +62,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         setUserInfo();
 
-        fm.beginTransaction().add(R.id.container, mBoardFragment, "4").hide(mBoardFragment).commit();
-        fm.beginTransaction().add(R.id.container, mPlayingFragment, "3").hide(mPlayingFragment).commit();
-        fm.beginTransaction().add(R.id.container, mStoreFragment, "2").hide(mStoreFragment).commit();
-        fm.beginTransaction().add(R.id.container, mHomeFragment, "1").commit();
-//        getStorageUrl("food_winter_1.png");
-//        getStorageUrl("food_winter_2.png");
-//        getStorageUrl("food_winter_3.png");
-//        getStorageUrl("food_winter_4.png");
+        fm.beginTransaction().add(R.id.main_container, mBoardFragment, "4").hide(mBoardFragment).commit();
+        fm.beginTransaction().add(R.id.main_container, mPlayingFragment, "3").hide(mPlayingFragment).commit();
+        fm.beginTransaction().add(R.id.main_container, mStoreFragment, "2").hide(mStoreFragment).commit();
+        fm.beginTransaction().add(R.id.main_container, mHomeFragment, "1").commit();
+
     }
 
     private void setUserInfo() {
