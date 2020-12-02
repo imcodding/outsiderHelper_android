@@ -22,7 +22,6 @@ import com.mia.outsiderhelper.main.fragment.playing.PlayingFragment;
 import com.mia.outsiderhelper.main.fragment.store.StoreFragment;
 import com.mia.outsiderhelper.models.LoginResponse;
 
-import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -84,6 +83,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            // bottom
             case R.id.tab_home:
                 fm.beginTransaction().hide(active).show(mHomeFragment).commit();
                 active = mHomeFragment;
@@ -100,7 +100,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 fm.beginTransaction().hide(active).show(mBoardFragment).commit();
                 active = mBoardFragment;
                 break;
-
+            // drawer
             case R.id.nav_home:
                 break;
             case R.id.nav_eating:
