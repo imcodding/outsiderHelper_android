@@ -51,7 +51,7 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:id="@+id/img_board_write"
+                        android:id="@+id/board_iv_write"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
 
