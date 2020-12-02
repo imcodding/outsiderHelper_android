@@ -1,12 +1,11 @@
 package com.mia.outsiderhelper.login;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.mia.outsiderhelper.util.SharedPreferenceUtil;
 import com.mia.outsiderhelper.models.LoginResponse;
 
 import static com.mia.outsiderhelper.ApplicationClass.FAILURE_CODE;
@@ -27,7 +26,8 @@ public class LoginService {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 LoginResponse response = snapshot.getValue(LoginResponse.class);
                 if(hash.equals(response.getHash())) {
-                    USER_ID = response.getUserId();
+                    USER_ID = userId;
+                    SharedPreferenceUtil.putString("USER_ID", userId);
                     loginActivityView.getUserSuccess(SUCCESS_CODE, response);
                 } else {
                     loginActivityView.getUserSuccess(FAILURE_CODE, null);
