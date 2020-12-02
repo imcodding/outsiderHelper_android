@@ -21,10 +21,10 @@
                 android:id="@+id/edit_board_filter"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginRight="19dp"
-                android:layout_toLeftOf="@+id/img_board_write"
-                android:background="@drawable/l_search_box"
                 android:layout_alignParentLeft="true"
+                android:layout_marginRight="19dp"
+                android:layout_toLeftOf="@+id/board_iv_write"
+                android:background="@drawable/l_search_box"
                 android:hint="키워드 입력"
                 android:paddingLeft="40dp"
                 android:textSize="15sp" />
@@ -39,7 +39,7 @@
                 android:src="@drawable/l_search_icon" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/img_board_write"
+                android:id="@+id/board_iv_write"
                 android:layout_width="@dimen/board_write_img_size"
                 android:layout_height="@dimen/board_write_img_size"
                 android:layout_alignParentRight="true"
@@ -59,4 +59,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/relative_board" />
+
+    <include
+        layout="@layout/custom_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
 </RelativeLayout>
