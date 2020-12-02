@@ -22,7 +22,8 @@ public class ApplicationClass extends Application {
     public static SharedPreferences sSharedPreferences = null;
 
     //날짜 형식
-    public static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA);
+    public static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm a", Locale.KOREA);
+//    public static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA);
 
     // Firebase 데이터베이스
     public static DatabaseReference mPostReference;
