@@ -44,5 +44,9 @@
     <!-- 로그인 -->
     <string name="login_pw_no_match">비밀번호가 일치하지 않습니다.</string>
     <string name="login_id_no_match">존재하지 않는 아이디입니다.</string>
+    <string name="login_auto_fail_message">다시 로그인해주세요.</string>
+    <!-- 게시판 글쓰기 -->
+    <string name="board_write_input_title">제목을 입력해주세요.</string>
+    <string name="board_write_input_content">내용을 입력해주세요.</string>
 
 </resources>
