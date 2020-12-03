@@ -14,16 +14,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mia.outsiderhelper.BaseFragment;
 import com.mia.outsiderhelper.R;
+import com.mia.outsiderhelper.main.fragment.board.detail.BoardDetailFragment;
+import com.mia.outsiderhelper.main.fragment.board.detail.OnItemClickListener;
 import com.mia.outsiderhelper.main.fragment.board.write.BoardWriteActivity;
 import com.mia.outsiderhelper.models.BoardBody;
 
 import java.util.ArrayList;
 
-public class BoardFragment extends BaseFragment implements BoardFragmentView, View.OnClickListener {
+public class BoardFragment extends BaseFragment implements BoardFragmentView, OnItemClickListener {
 
     private BoardListAdapter mBoardListAdapter;
-    private RecyclerView rvBoards;
-    private AppCompatImageView mBoardIvWrite;
+    private RecyclerView mRvBoards;
     private BoardService mBoardService;
 
     @Nullable
@@ -32,14 +33,23 @@ public class BoardFragment extends BaseFragment implements BoardFragmentView, Vi
         View view = inflater.inflate(R.layout.fragment_board, container, false);
 
         mBoardService = new BoardService(this);
-
-        mProgressBar = view.findViewById(R.id.progress_bar);
-        mBoardIvWrite = view.findViewById(R.id.board_iv_write);
-        mBoardIvWrite.setOnClickListener(this);
+        mBoardListAdapter = new BoardListAdapter();
+        mBoardListAdapter.setListener(this);
 
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
-        rvBoards = view.findViewById(R.id.recycler_board);
-        rvBoards.setLayoutManager(manager);
+        mRvBoards = view.findViewById(R.id.recycler_board);
+        mRvBoards.setLayoutManager(manager);
+        mProgressBar = view.findViewById(R.id.progress_bar);
+
+        AppCompatImageView boardIvWrite = view.findViewById(R.id.board_iv_write);
+        boardIvWrite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =  new Intent(getActivity(), BoardWriteActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         return view;
     }
@@ -48,26 +58,26 @@ public class BoardFragment extends BaseFragment implements BoardFragmentView, Vi
     public void onStart() {
         super.onStart();
 
-        showProgressDialog();
+//        showProgressDialog();
         mBoardService.getBoardList();
-    }
-
-    @Override
-    public void onClick(View view) {
-        Intent intent =  new Intent(getActivity(), BoardWriteActivity.class);
-        startActivity(intent);
     }
 
     @Override
     public void getBoardListSuccess(ArrayList<BoardBody> boards) {
         hideProgressDialog();
 
-        mBoardListAdapter = new BoardListAdapter(boards);
-        rvBoards.setAdapter(mBoardListAdapter);
+        mBoardListAdapter.setBoards(boards);
+        mRvBoards.setAdapter(mBoardListAdapter);
     }
 
     @Override
     public void getBoardListFailure(String message) {
         hideProgressDialog();
+    }
+
+    @Override
+    public void onItemClick(int pos) {
+        BoardBody board = mBoardListAdapter.getItem(pos);
+        getFragmentManager().beginTransaction().replace(R.id.board_container, BoardDetailFragment.newInstance(board)).commit();
     }
 }
