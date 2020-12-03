@@ -28,7 +28,6 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@id/linear_board"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_above="@id/layout_btn"
