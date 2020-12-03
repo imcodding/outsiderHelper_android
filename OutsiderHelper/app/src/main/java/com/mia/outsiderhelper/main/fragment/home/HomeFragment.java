@@ -52,7 +52,6 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView {
 
     @Override
     public void getWeatherSuccess() {
-//        hideProgressDialog();
         mHomeService.getFoodImage("winter");
     }
 
@@ -111,7 +110,6 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
         if(mTimer != null) {
             mTimer.cancel();
             mTimer.purge();
