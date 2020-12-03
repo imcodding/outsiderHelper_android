@@ -1,10 +1,13 @@
 package com.mia.outsiderhelper;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.DialogInterface;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -25,7 +28,9 @@ import static com.mia.outsiderhelper.ApplicationClass.getDatabaseReference;
 
 @SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity {
+
     public ProgressBar mProgressBar;
+    private long lastTimeBackPressed;
 
     public void showCustomToast(final String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
@@ -94,4 +99,13 @@ public class BaseActivity extends AppCompatActivity {
         hideProgressDialog();
     }
 
+    @Override
+    public void onBackPressed() {
+        if(System.currentTimeMillis() - lastTimeBackPressed < 1500) {
+            finish();
+            return;
+        }
+        lastTimeBackPressed = System.currentTimeMillis();
+        showCustomToast("한 번 더 누르시면 종료됩니다.");
+    }
 }
