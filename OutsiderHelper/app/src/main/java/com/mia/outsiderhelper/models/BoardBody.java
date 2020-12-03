@@ -15,6 +15,7 @@ public class BoardBody implements Serializable {
     private String date;
     private int hits;
 
+    public BoardBody(){}
     public BoardBody(int boardNo, String userId, String title, String content) {
         this.boardNo = boardNo;
         this.userId = userId;
@@ -34,6 +35,17 @@ public class BoardBody implements Serializable {
         map.put("date", date);
 
         return map;
+    }
+
+    public BoardBody toObject(HashMap<String, Object> map) {
+        this.boardNo = Integer.parseInt(String.valueOf(map.get("boardNo")));
+        this.userId = String.valueOf(map.get("userId"));
+        this.title = String.valueOf(map.get("title"));
+        this.content = String.valueOf(map.get("content"));
+        this.hits = Integer.parseInt(String.valueOf(map.get("hits")));
+        this.date = String.valueOf(map.get("date"));
+
+        return this;
     }
 
     public int getBoardNo() {
