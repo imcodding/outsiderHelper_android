@@ -49,7 +49,9 @@ public class BoardWriteActivity extends BaseActivity implements BoardWriteActivi
 
     @Override
     public void getBoardNoLastSuccess(int lastBoardNo) {
-        mBoardNo = lastBoardNo + 1;
+        if(lastBoardNo == 1) mBoardNo = lastBoardNo;
+        else mBoardNo = lastBoardNo + 1;
+
         String title = String.valueOf(mBoardTitle.getText());
         String content = String.valueOf(mBoardContent.getText());
 

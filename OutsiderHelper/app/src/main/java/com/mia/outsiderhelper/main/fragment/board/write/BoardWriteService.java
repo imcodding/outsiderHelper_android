@@ -23,8 +23,12 @@ public class BoardWriteService {
         getDatabaseReference().child("boards").child("lastBoardNo").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String lastBoardNo = snapshot.getValue().toString();
-                boardWriteActivityView.getBoardNoLastSuccess(Integer.parseInt(lastBoardNo));
+                if(snapshot.getValue() == null) {
+                    boardWriteActivityView.getBoardNoLastSuccess(1);
+                } else {
+                    String lastBoardNo = snapshot.getValue().toString();
+                    boardWriteActivityView.getBoardNoLastSuccess(Integer.parseInt(lastBoardNo));
+                }
             }
 
             @Override
