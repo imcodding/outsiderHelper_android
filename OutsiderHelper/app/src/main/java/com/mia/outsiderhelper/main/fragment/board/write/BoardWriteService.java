@@ -24,7 +24,7 @@ public class BoardWriteService {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.getValue() == null) {
-                    boardWriteActivityView.getBoardNoLastSuccess(1);
+                    boardWriteActivityView.getBoardNoLastSuccess(0);
                 } else {
                     String lastBoardNo = snapshot.getValue().toString();
                     boardWriteActivityView.getBoardNoLastSuccess(Integer.parseInt(lastBoardNo));
@@ -33,7 +33,7 @@ public class BoardWriteService {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                boardWriteActivityView.getBoardNoLastFailure(error.getMessage());
             }
         });
     }

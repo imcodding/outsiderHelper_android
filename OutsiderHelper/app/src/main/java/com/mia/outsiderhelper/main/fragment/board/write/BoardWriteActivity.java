@@ -2,6 +2,8 @@ package com.mia.outsiderhelper.main.fragment.board.write;
 
 import androidx.appcompat.widget.AppCompatEditText;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +21,7 @@ public class BoardWriteActivity extends BaseActivity implements BoardWriteActivi
     private AppCompatEditText mBoardTitle;
     private AppCompatEditText mBoardContent;
 
+    private BoardBody mBoard;
     private int mBoardNo = 0;
 
     @Override
@@ -34,6 +37,7 @@ public class BoardWriteActivity extends BaseActivity implements BoardWriteActivi
     }
 
 
+    @SuppressLint("NonConstantResourceId")
     public void onClickView(View view) {
         switch (view.getId()) {
             case R.id.bd_write_save:
@@ -49,25 +53,29 @@ public class BoardWriteActivity extends BaseActivity implements BoardWriteActivi
 
     @Override
     public void getBoardNoLastSuccess(int lastBoardNo) {
-        if(lastBoardNo == 1) mBoardNo = lastBoardNo;
-        else mBoardNo = lastBoardNo + 1;
+        mBoardNo = lastBoardNo + 1;
 
         String title = String.valueOf(mBoardTitle.getText());
         String content = String.valueOf(mBoardContent.getText());
 
-        BoardBody board = new BoardBody(mBoardNo, USER_ID, title, content);
-        mBoardWriteService.postWriting(mBoardNo, board.toMap());
+        mBoard = new BoardBody(mBoardNo, USER_ID, title, content);
+        mBoardWriteService.postWriting(mBoardNo, mBoard.toMap());
     }
 
     @Override
     public void getBoardNoLastFailure(String message) {
         Log.d(TAG, message);
+        showCustomToast(getString(R.string.network_not_working));
     }
 
     @Override
     public void postWriteSuccess() {
         hideProgressDialog();
         mBoardWriteService.updateBoardNoLast(mBoardNo);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("board", mBoard);
+        Intent intent = getIntent();
+        intent.putExtras(bundle);
         finish();
     }
 
@@ -75,12 +83,11 @@ public class BoardWriteActivity extends BaseActivity implements BoardWriteActivi
     public void postWriteFailure(String message) {
         hideProgressDialog();
         Log.d(TAG, message);
+        showCustomToast(getString(R.string.network_not_working));
     }
 
     @Override
-    public void updateBoardNoLastSuccess() {
-
-    }
+    public void updateBoardNoLastSuccess() { }
 
     @Override
     public void updateBoardNoLastFailure(String message) {
