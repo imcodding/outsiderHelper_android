@@ -21,6 +21,8 @@ import com.mia.outsiderhelper.models.BoardBody;
 
 import java.util.ArrayList;
 
+import static android.app.Activity.RESULT_OK;
+
 public class BoardFragment extends BaseFragment implements BoardFragmentView, OnItemClickListener {
 
     private BoardListAdapter mBoardListAdapter;
@@ -45,11 +47,10 @@ public class BoardFragment extends BaseFragment implements BoardFragmentView, On
         boardIvWrite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =  new Intent(getActivity(), BoardWriteActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent(getActivity(), BoardWriteActivity.class);
+                startActivityForResult(intent, 101);
             }
         });
-
 
         return view;
     }
@@ -58,8 +59,21 @@ public class BoardFragment extends BaseFragment implements BoardFragmentView, On
     public void onStart() {
         super.onStart();
 
-//        showProgressDialog();
+        showProgressDialog();
         mBoardService.getBoardList();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK && requestCode == 101) {
+            if (data != null) {
+                Bundle bundle = data.getExtras();
+                BoardBody board = (BoardBody) bundle.get("board");
+                mBoardListAdapter.addItem(board);
+            }
+        }
     }
 
     @Override

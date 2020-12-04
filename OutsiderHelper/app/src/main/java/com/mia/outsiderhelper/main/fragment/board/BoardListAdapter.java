@@ -20,7 +20,9 @@ public class BoardListAdapter extends RecyclerView.Adapter<BoardListAdapter.Boar
     private String mDate;
     private String mTime;
 
-    public BoardListAdapter(){}
+    public BoardListAdapter() {
+    }
+
     public BoardListAdapter(ArrayList<BoardBody> boards) {
         this.boards = boards;
     }
@@ -55,7 +57,7 @@ public class BoardListAdapter extends RecyclerView.Adapter<BoardListAdapter.Boar
         return boards.size();
     }
 
-    public class BoardHolder extends RecyclerView.ViewHolder{
+    public class BoardHolder extends RecyclerView.ViewHolder {
         TextView txtBoardTitle;
         TextView txtBoardHits;
         TextView txtBoardNickname;
@@ -74,7 +76,7 @@ public class BoardListAdapter extends RecyclerView.Adapter<BoardListAdapter.Boar
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(listener != null) {
+                    if (listener != null) {
                         listener.onItemClick(getAdapterPosition());
                     }
                 }
@@ -99,5 +101,8 @@ public class BoardListAdapter extends RecyclerView.Adapter<BoardListAdapter.Boar
         }
     }
 
-
+    public void addItem(BoardBody board) {
+        this.boards.add(board);
+        notifyItemInserted(boards.size() - 1);
+    }
 }
