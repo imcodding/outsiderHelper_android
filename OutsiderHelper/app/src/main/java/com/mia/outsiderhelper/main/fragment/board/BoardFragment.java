@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.mia.outsiderhelper.BaseFragment;
 import com.mia.outsiderhelper.R;
 import com.mia.outsiderhelper.main.fragment.board.detail.BoardDetailFragment;
-import com.mia.outsiderhelper.main.fragment.board.detail.OnItemClickListener;
+import com.mia.outsiderhelper.main.fragment.board.detail.interfaces.OnItemClickListener;
 import com.mia.outsiderhelper.main.fragment.board.write.BoardWriteActivity;
 import com.mia.outsiderhelper.models.BoardBody;
 

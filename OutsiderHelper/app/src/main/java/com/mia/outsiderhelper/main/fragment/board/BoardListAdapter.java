@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mia.outsiderhelper.R;
-import com.mia.outsiderhelper.main.fragment.board.detail.OnItemClickListener;
+import com.mia.outsiderhelper.main.fragment.board.detail.interfaces.OnItemClickListener;
 import com.mia.outsiderhelper.models.BoardBody;
 
 import java.util.ArrayList;
