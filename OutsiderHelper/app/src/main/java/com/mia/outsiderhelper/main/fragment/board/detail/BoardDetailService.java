@@ -10,7 +10,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.mia.outsiderhelper.main.fragment.board.detail.interfaces.BoardDetailFragmentView;
+import com.mia.outsiderhelper.models.BoardBody;
+import com.mia.outsiderhelper.models.CommentBody;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.mia.outsiderhelper.ApplicationClass.getDatabaseReference;
@@ -44,7 +47,7 @@ public class BoardDetailService {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.getValue() == null) {
-                    boardDetailFragmentView.getCommentNoLastSuccess(1);
+                    boardDetailFragmentView.getCommentNoLastSuccess(0);
                 } else {
                     String lastCommentNo = String.valueOf(snapshot.getValue());
                     boardDetailFragmentView.getCommentNoLastSuccess(Integer.parseInt(lastCommentNo));
@@ -72,5 +75,30 @@ public class BoardDetailService {
 
                     }
                 });
+    }
+
+    void getComments(int boardNo) {
+        getDatabaseReference().child("comments").child("bNo_" + boardNo).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                HashMap map = (HashMap) snapshot.getValue();
+                if(map == null) {
+                    boardDetailFragmentView.getCommentsFailure(null);
+                    return;
+                }
+
+                ArrayList<CommentBody> comments = new ArrayList<>();
+                for(int i = 1; i < map.size(); i++) {
+                    HashMap<String, Object> item = (HashMap<String, Object>) map.get(String.valueOf(i));
+                    comments.add(new CommentBody().toObject(item));
+                }
+                boardDetailFragmentView.getCommentsSuccess(comments);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                boardDetailFragmentView.getCommentsFailure(error.getMessage());
+            }
+        });
     }
 }
