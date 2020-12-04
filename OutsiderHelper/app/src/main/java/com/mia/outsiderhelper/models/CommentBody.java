@@ -12,6 +12,7 @@ public class CommentBody implements Serializable {
     private String userId;
     private String date;
 
+    public CommentBody(){}
     public CommentBody(int commentNo, String content, String userId) {
         this.commentNo = commentNo;
         this.content = content;
@@ -27,6 +28,15 @@ public class CommentBody implements Serializable {
         map.put("date", date);
 
         return map;
+    }
+
+    public CommentBody toObject(HashMap<String, Object> map) {
+        this.commentNo = Integer.parseInt(String.valueOf(map.get("commentNo")));
+        this.content = String.valueOf(map.get("content"));
+        this.userId = String.valueOf(map.get("userId"));
+        this.date = String.valueOf(map.get("date"));
+
+        return this;
     }
 
     public int getCommentNo() {
