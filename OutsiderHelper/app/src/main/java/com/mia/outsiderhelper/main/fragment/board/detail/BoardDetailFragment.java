@@ -67,7 +67,7 @@ public class BoardDetailFragment extends BaseFragment implements BoardDetailFrag
         mRvComments = view.findViewById(R.id.recycler_comment);
         mRvComments.setLayoutManager(manager);
 
-        Button commentPostBtn = view.findViewById(R.id.bd_detail_btn_comment_post);
+        TextView commentPostBtn = view.findViewById(R.id.bd_detail_btn_comment_post);
         commentPostBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,8 +77,11 @@ public class BoardDetailFragment extends BaseFragment implements BoardDetailFrag
 
                 showProgressDialog();
                 mBoardDetailService.getCommentNoLast(mBoardNo);
+
+                keyboardDown();
             }
         });
+
         setViewValue();
 
         return view;
@@ -114,7 +117,6 @@ public class BoardDetailFragment extends BaseFragment implements BoardDetailFrag
     @Override
     public void getCommentsFailure(String message) {
         hideProgressDialog();
-        showCustomToast(getString(R.string.network_not_working));
     }
 
     @Override
@@ -135,9 +137,9 @@ public class BoardDetailFragment extends BaseFragment implements BoardDetailFrag
     public void postCommentSuccess() {
         hideProgressDialog();
         showCustomToast(getString(R.string.board_detail_comment_success));
-        mBoardDetailService.updateCommentNoLast(mBoardNo, mCommentNo);
         mCommentListAdapter.addItem(mCommentBody);
         mCommentEditContent.setText(null);
+        mBoardDetailService.updateCommentNoLast(mBoardNo, mCommentNo);
     }
 
     @Override

@@ -1,22 +1,37 @@
 package com.mia.outsiderhelper;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+
+import static android.content.Context.INPUT_METHOD_SERVICE;
 
 @SuppressLint("Registered")
 public class BaseFragment extends Fragment {
     public ProgressBar mProgressBar;
     public Dialog mDialog;
+    public Activity mParentActivity;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mParentActivity = getActivity();
+    }
+
     public void showCustomToast(final String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
@@ -69,5 +84,15 @@ public class BaseFragment extends Fragment {
             mDialog= null;
             mDialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
         }
+    }
+
+    public void keyboardUp(View view) {
+        InputMethodManager manager = (InputMethodManager) mParentActivity.getSystemService(INPUT_METHOD_SERVICE);
+        manager.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
+    }
+
+    public void keyboardDown() {
+        InputMethodManager manager = (InputMethodManager)mParentActivity.getSystemService(INPUT_METHOD_SERVICE);
+        manager.hideSoftInputFromWindow(mParentActivity.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 }
