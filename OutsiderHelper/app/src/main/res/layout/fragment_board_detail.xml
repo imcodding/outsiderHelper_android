@@ -83,8 +83,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_comment"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:listitem="@layout/item_comment" />
+                android:layout_height="match_parent" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -123,11 +122,14 @@
                         android:scrollbars="vertical"
                         android:textSize="14sp" />
 
-                    <Button
+                    <TextView
                         android:id="@+id/bd_detail_btn_comment_post"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:background="@drawable/ok_button_selector2"
                         android:text="등록" />
                 </LinearLayout>
 
