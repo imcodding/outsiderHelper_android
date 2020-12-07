@@ -1,6 +1,7 @@
 package com.mia.outsiderhelper.main.fragment.store;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.annotation.Nullable;
 
 import com.mia.outsiderhelper.BaseFragment;
 import com.mia.outsiderhelper.R;
+import com.mia.outsiderhelper.main.fragment.store.restaurant.RestaurantActivity;
 
 public class StoreFragment extends BaseFragment implements View.OnClickListener {
 
@@ -38,6 +40,8 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.store_linear_eating:
+                Intent intent = new Intent(getActivity(), RestaurantActivity.class);
+                startActivity(intent);
                 break;
             case R.id.store_linear_cafe:
                 break;
