@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -66,6 +67,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         fm.beginTransaction().add(R.id.main_container, mStoreFragment, "2").hide(mStoreFragment).commit();
         fm.beginTransaction().add(R.id.main_container, mHomeFragment, "1").commit();
 
+        getHashKey();
     }
 
     private void setUserInfo() {
@@ -136,5 +138,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
         }
+    }
+
+    private void getHashKey() {
+        String keyHash = com.kakao.util.maps.helper.Utility.getKeyHash(this);
+        Log.d("HASH_KEY", keyHash);
     }
 }
