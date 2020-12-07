@@ -47,7 +47,7 @@ public class HomeFragment extends BaseFragment implements HomeFragmentView {
         super.onStart();
 
         showProgressDialog();
-        mHomeService.getWeather("http://api.openweathermap.org");
+        mHomeService.getWeather();
     }
 
     @Override

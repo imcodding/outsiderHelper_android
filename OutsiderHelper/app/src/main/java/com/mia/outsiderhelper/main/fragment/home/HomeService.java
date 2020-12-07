@@ -25,8 +25,8 @@ public class HomeService {
         this.homeFragmentView = homeFragmentView;
     }
 
-    void getWeather(String url) {
-        final HomeRetrofitInterface homeRetrofitInterface = getRetrofit(url).create(HomeRetrofitInterface.class);
+    void getWeather() {
+        final HomeRetrofitInterface homeRetrofitInterface = getRetrofit("http://api.openweathermap.org").create(HomeRetrofitInterface.class);
         homeRetrofitInterface.getWeather("Seoul", "326ccf8d226e6c1c0bea6d7d302a4d2c").enqueue(new Callback<WeatherResponse>() {
             @Override
             public void onResponse(Call<WeatherResponse> call, Response<WeatherResponse> response) {
