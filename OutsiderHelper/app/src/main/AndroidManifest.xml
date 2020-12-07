@@ -3,6 +3,7 @@
     package="com.mia.outsiderhelper">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".ApplicationClass"
@@ -12,7 +13,8 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/CustomNoActionBar">
-        <activity android:name=".main.fragment.board.write.BoardWriteActivity"></activity>
+        <activity android:name=".main.fragment.store.restaurant.RestaurantActivity"></activity>
+        <activity android:name=".main.fragment.board.write.BoardWriteActivity" />
         <activity
             android:name=".splash.SplashActivity"
             android:theme="@style/SplashTheme">
@@ -23,8 +25,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".login.LoginActivity" />
-        <activity android:name=".main.MainActivity"></activity>
+        <activity android:name=".main.MainActivity" />
         <activity android:name=".signup.SignUpActivity" />
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_sdk_key" />
     </application>
 
 </manifest>
