@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color">
 
-    <RelativeLayout
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linear_comment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,61 +87,113 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical">
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:orientation="vertical">-->
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/h_mt_10_line_2" />
+            <!--                <ImageView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:src="@drawable/h_mt_10_line_2" />-->
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:padding="10dp"
-                    android:text="댓글달기"
-                    android:textStyle="bold" />
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginTop="30dp"-->
+            <!--                    android:padding="10dp"-->
+            <!--                    android:text="댓글달기"-->
+            <!--                    android:textStyle="bold" />-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="30dp"
-                    android:orientation="horizontal">
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:layout_marginBottom="30dp"-->
+            <!--                    android:orientation="horizontal">-->
 
-                    <EditText
-                        android:id="@+id/bd_detail_edit_comment_cont"
-                        android:layout_width="0dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="4"
-                        android:background="@drawable/f_review_box_3"
-                        android:gravity="top"
-                        android:hint="내용입력"
-                        android:padding="15dp"
-                        android:scrollbars="vertical"
-                        android:textSize="14sp" />
+            <!--                    <EditText-->
+            <!--                        android:id="@+id/bd_detail_edit_comment_cont"-->
+            <!--                        android:layout_width="0dp"-->
+            <!--                        android:layout_height="100dp"-->
+            <!--                        android:layout_weight="4"-->
+            <!--                        android:background="@drawable/f_review_box_3"-->
+            <!--                        android:gravity="top"-->
+            <!--                        android:hint="내용입력"-->
+            <!--                        android:padding="15dp"-->
+            <!--                        android:scrollbars="vertical"-->
+            <!--                        android:textSize="14sp" />-->
 
-                    <TextView
-                        android:id="@+id/bd_detail_btn_comment_post"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/white"
-                        android:background="@drawable/ok_button_selector2"
-                        android:text="등록" />
-                </LinearLayout>
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/bd_detail_btn_comment_post"-->
+            <!--                        android:layout_width="0dp"-->
+            <!--                        android:layout_height="match_parent"-->
+            <!--                        android:layout_weight="1"-->
+            <!--                        android:background="@drawable/ok_button_selector2"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="등록"-->
+            <!--                        android:textColor="@color/white" />-->
+            <!--                </LinearLayout>-->
 
-            </LinearLayout>
+            <!--            </LinearLayout>-->
 
         </LinearLayout>
-        <include
-            layout="@layout/custom_progressbar"
-            android:layout_width="wrap_content"
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/linear_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
-    </RelativeLayout>
-</ScrollView>
+            android:src="@drawable/h_mt_10_line_2" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:padding="10dp"
+            android:text="댓글달기"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/bd_detail_edit_comment_cont"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="4"
+                android:background="@drawable/f_review_box_3"
+                android:gravity="top"
+                android:hint="내용입력"
+                android:padding="15dp"
+                android:scrollbars="vertical"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/bd_detail_btn_comment_post"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ok_button_selector2"
+                android:gravity="center"
+                android:text="등록"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/custom_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+</RelativeLayout>
