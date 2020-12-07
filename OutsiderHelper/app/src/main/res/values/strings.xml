@@ -22,7 +22,8 @@
     <string name="board">게시판</string>
     <string name="chatting">채팅</string>
 
-    <string name="kakao_sdk_key">b94c53245a82c42ddf4d4b1b22d5ed69</string>
+    <string name="kakao_sdk_key">ad46142faf3a1336c52f0ca25211ccae</string>
+    <string name="kakao_rest_key">b6e21fc6d7d85314f799340f3b264013</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -53,5 +54,6 @@
     <!-- 댓글 -->
     <string name="board_detail_input_comment">내용을 입력해주세요.</string>
     <string name="board_detail_comment_success">댓글이 등록되었습니다.</string>
-
+    <!-- 상권 -->
+    <string name="store_input_search_keyword">키워드를 입력하세요.</string>
 </resources>
