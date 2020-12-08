@@ -64,5 +64,8 @@ dependencies {
     // 로그
     implementation 'com.squareup.okhttp3:okhttp:3.12.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+
+    // 권한
+    implementation "gun0912.ted:tedpermission:2.1.0"
 }
 apply plugin: 'com.google.gms.google-services'
