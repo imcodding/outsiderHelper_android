@@ -14,6 +14,8 @@ public interface RestaurantRetrofitInterface {
     @Headers("Authorization: KakaoAK " + KAKAO_REST_KEY)
     Call<SearchResponse> getSearchByKeyword(
             @Query("query") String query,
+            @Query("x") double longitude,
+            @Query("y") double latitude,
             @Query("size") int size
     );
 }

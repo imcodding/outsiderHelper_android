@@ -18,9 +18,9 @@ public class RestaurantService {
         this.restaurantActivityView = restaurantActivityView;
     }
 
-    void getSearchByKeyword(String keyword) {
+    void getSearchByKeyword(String keyword, double x, double y) {
         final RestaurantRetrofitInterface restaurantRetrofitInterface = getRetrofit(url).create(RestaurantRetrofitInterface.class);
-        restaurantRetrofitInterface.getSearchByKeyword(keyword, 15).enqueue(new Callback<SearchResponse>() {
+        restaurantRetrofitInterface.getSearchByKeyword(keyword, x, y, 15).enqueue(new Callback<SearchResponse>() {
             @Override
             public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
                 SearchResponse searchResponse = response.body();
@@ -37,4 +37,5 @@ public class RestaurantService {
             }
         });
     }
+
 }
