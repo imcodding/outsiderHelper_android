@@ -1,24 +1,12 @@
 package com.mia.outsiderhelper.main.fragment.store.restaurant;
 
-
 import android.Manifest;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 import com.mia.outsiderhelper.BaseActivity;
@@ -33,10 +21,11 @@ import net.daum.mf.map.api.MapView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RestaurantActivity extends BaseActivity implements RestaurantActivityView {
+public class RestaurantActivity extends BaseActivity implements RestaurantActivityView, View.OnClickListener {
 
     private RestaurantService mRestaurantService;
     private MapView mMapView;
+    private EditText mResEditKeyword;
     private double mLatitude;
     private double mLongitude;
 
@@ -54,24 +43,28 @@ public class RestaurantActivity extends BaseActivity implements RestaurantActivi
 
     private void initView() {
         mProgressBar = findViewById(R.id.progress_bar);
+        mResEditKeyword = findViewById(R.id.restaurant_edit_keyword);
         mMapView = new MapView(this);
-        mMapView.setZoomLevel(3, false);
+
+        mMapView.setZoomLevel(4, false);
         ViewGroup container = findViewById(R.id.restaurant_map_view);
         container.addView(mMapView);
-        EditText resEditKeyword = findViewById(R.id.restaurant_edit_keyword);
+
         Button resSearchBtn = findViewById(R.id.restaurant_btn_search);
-        resSearchBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String keyword = String.valueOf(resEditKeyword.getText());
-                if (keyword.length() == 0) {
-                    showCustomToast(getString(R.string.store_input_search_keyword));
-                    return;
-                }
-                showProgressDialog();
-                mRestaurantService.getSearchByKeyword(keyword, mLongitude, mLatitude);
-            }
-        });
+        resSearchBtn.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        String keyword = String.valueOf(mResEditKeyword.getText());
+        if (keyword.length() == 0) {
+            showCustomToast(getString(R.string.store_input_search_keyword));
+            return;
+        }
+
+        showProgressDialog();
+        for(int i = 1; i <= 5; i++)
+            mRestaurantService.getSearchByKeyword(keyword, mLongitude, mLatitude, i);
     }
 
     @Override
@@ -118,6 +111,19 @@ public class RestaurantActivity extends BaseActivity implements RestaurantActivi
                 public void onCurrentLocationUpdate(MapView mapView, MapPoint mapPoint, float v) {
                     mLatitude = mapPoint.getMapPointGeoCoord().latitude;
                     mLongitude = mapPoint.getMapPointGeoCoord().longitude;
+
+                    Log.d("Restaurant", "location update");
+
+                    showProgressDialog();
+                    mRestaurantService.getSearchByKeyword("밥", mLongitude, mLatitude,1);
+                    mRestaurantService.getSearchByKeyword("밥", mLongitude, mLatitude,2);
+                    mRestaurantService.getSearchByKeyword("밥", mLongitude, mLatitude,3);
+                    mRestaurantService.getSearchByKeyword("고기", mLongitude, mLatitude,1);
+                    mRestaurantService.getSearchByKeyword("고기", mLongitude, mLatitude,2);
+                    mRestaurantService.getSearchByKeyword("고기", mLongitude, mLatitude,3);
+                    mRestaurantService.getSearchByKeyword("치킨", mLongitude, mLatitude,1);
+                    mRestaurantService.getSearchByKeyword("치킨", mLongitude, mLatitude,2);
+                    mRestaurantService.getSearchByKeyword("치킨", mLongitude, mLatitude,3);
                 }
 
                 @Override
