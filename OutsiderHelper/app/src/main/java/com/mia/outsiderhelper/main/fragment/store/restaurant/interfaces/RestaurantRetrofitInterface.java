@@ -16,6 +16,7 @@ public interface RestaurantRetrofitInterface {
             @Query("query") String query,
             @Query("x") double longitude,
             @Query("y") double latitude,
+            @Query("page") int page,
             @Query("size") int size
     );
 }
