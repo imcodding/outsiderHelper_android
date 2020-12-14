@@ -1,16 +1,20 @@
 package com.mia.outsiderhelper.main.fragment.store.restaurant;
 
 import android.Manifest;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 import com.mia.outsiderhelper.BaseActivity;
 import com.mia.outsiderhelper.R;
+import com.mia.outsiderhelper.main.fragment.store.restaurant.blog.BlogListActivity;
 import com.mia.outsiderhelper.main.fragment.store.restaurant.interfaces.RestaurantActivityView;
 import com.mia.outsiderhelper.models.SearchResponse;
 
@@ -21,7 +25,7 @@ import net.daum.mf.map.api.MapView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RestaurantActivity extends BaseActivity implements RestaurantActivityView, View.OnClickListener {
+public class RestaurantActivity extends BaseActivity implements RestaurantActivityView, View.OnClickListener, MapView.POIItemEventListener {
 
     private RestaurantService mRestaurantService;
     private MapView mMapView;
@@ -47,11 +51,12 @@ public class RestaurantActivity extends BaseActivity implements RestaurantActivi
         mMapView = new MapView(this);
 
         mMapView.setZoomLevel(4, false);
+        mMapView.setPOIItemEventListener(this);
         ViewGroup container = findViewById(R.id.restaurant_map_view);
         container.addView(mMapView);
 
-        Button resSearchBtn = findViewById(R.id.restaurant_btn_search);
-        resSearchBtn.setOnClickListener(this);
+        ImageView resIvSearch = findViewById(R.id.restaurant_iv_search);
+        resIvSearch.setOnClickListener(this);
     }
 
     @Override
@@ -149,4 +154,24 @@ public class RestaurantActivity extends BaseActivity implements RestaurantActivi
             finish();
         }
     };
+
+    @Override
+    public void onPOIItemSelected(MapView mapView, MapPOIItem mapPOIItem) {
+        showCustomToast("가게 이름을 클릭하시면 블로그를 확인할 수 있습니다.");
+    }
+
+    @Override
+    public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {
+        Intent intent = new Intent(getApplicationContext(), BlogListActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem, MapPOIItem.CalloutBalloonButtonType calloutBalloonButtonType) {
+    }
+
+    @Override
+    public void onDraggablePOIItemMoved(MapView mapView, MapPOIItem mapPOIItem, MapPoint mapPoint) {
+
+    }
 }
