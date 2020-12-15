@@ -67,5 +67,9 @@ dependencies {
 
     // 권한
     implementation "gun0912.ted:tedpermission:2.1.0"
+
+    // SwipyRefresh
+    implementation 'com.github.omadahealth:swipy:1.2.3@aar'
+    implementation 'com.github.orangegangsters:swipy:1.2.3@aar'
 }
 apply plugin: 'com.google.gms.google-services'
