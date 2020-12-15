@@ -163,6 +163,7 @@ public class RestaurantActivity extends BaseActivity implements RestaurantActivi
     @Override
     public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {
         Intent intent = new Intent(getApplicationContext(), BlogListActivity.class);
+        intent.putExtra("restaurantName", mapPOIItem.getItemName());
         startActivity(intent);
     }
 
