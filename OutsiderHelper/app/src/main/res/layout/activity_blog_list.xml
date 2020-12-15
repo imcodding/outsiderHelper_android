@@ -4,10 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".main.fragment.store.restaurant.blog.BlogListActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/blog_rv_list"
+    <include
+        android:id="@+id/toolbar_layout"
+        layout="@layout/sub_toolbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
+
+    <com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout
+        android:id="@+id/blog_swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srl_direction="both">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/blog_rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout>
 </LinearLayout>
